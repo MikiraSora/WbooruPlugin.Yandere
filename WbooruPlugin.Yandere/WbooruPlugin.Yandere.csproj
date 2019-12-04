@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\Plugins\</OutputPath>
+    <OutputPath>..\..\..\Wbooru\bin\Debug\Plugins\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -69,7 +69,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Wbooru\Wbooru\Wbooru.csproj">
+    <ProjectReference Include="..\..\..\Wbooru\Wbooru.csproj">
       <Project>{c707353f-3e50-49b7-a2e1-1df669305470}</Project>
       <Name>Wbooru</Name>
       <Private>False</Private>

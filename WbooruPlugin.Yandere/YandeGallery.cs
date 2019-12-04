@@ -38,6 +38,12 @@ namespace WbooruPlugin.Yandere
 
         public CustomLoginPage CustomLoginPage => null;
 
+        public override string PluginName => "Yandere Source Plugin";
+
+        public override string PluginAuthor => "MikiraSora";
+
+        public override string PluginDescription => "能提供Yande.re图片以及相关功能的插件";
+
         public GlobalSetting global_setting;
 
         public YandeSetting yander_setting;
