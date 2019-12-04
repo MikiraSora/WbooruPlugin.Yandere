@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WbooruPlugin.Yandere", "WbooruPlugin.Yandere.csproj", "{4CB0A1DB-AFE9-4CFB-9ADE-835FFBDFC23D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wbooru", "..\..\Wbooru\Wbooru\Wbooru.csproj", "{C707353F-3E50-49B7-A2E1-1DF669305470}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		SQLITE_DEBUG|Any CPU = SQLITE_DEBUG|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4CB0A1DB-AFE9-4CFB-9ADE-835FFBDFC23D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CB0A1DB-AFE9-4CFB-9ADE-835FFBDFC23D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CB0A1DB-AFE9-4CFB-9ADE-835FFBDFC23D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CB0A1DB-AFE9-4CFB-9ADE-835FFBDFC23D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CB0A1DB-AFE9-4CFB-9ADE-835FFBDFC23D}.SQLITE_DEBUG|Any CPU.ActiveCfg = SQLITE_DEBUG|Any CPU
+		{4CB0A1DB-AFE9-4CFB-9ADE-835FFBDFC23D}.SQLITE_DEBUG|Any CPU.Build.0 = SQLITE_DEBUG|Any CPU
+		{C707353F-3E50-49B7-A2E1-1DF669305470}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C707353F-3E50-49B7-A2E1-1DF669305470}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C707353F-3E50-49B7-A2E1-1DF669305470}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C707353F-3E50-49B7-A2E1-1DF669305470}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C707353F-3E50-49B7-A2E1-1DF669305470}.SQLITE_DEBUG|Any CPU.ActiveCfg = SQLITE_DEBUG|Any CPU
+		{C707353F-3E50-49B7-A2E1-1DF669305470}.SQLITE_DEBUG|Any CPU.Build.0 = SQLITE_DEBUG|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4FDD3DD9-BD76-4088-85B4-806061F4D00C}
+	EndGlobalSection
+EndGlobal
