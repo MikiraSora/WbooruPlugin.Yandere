@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ using Wbooru.Utils;
 
 namespace WbooruPlugin.Yandere
 {
+    [Export(typeof(PluginInfo))]
     public class YanderePluginInfo : PluginInfo, IPluginUpdatable
     {
         public Version CurrentPluginVersion => GetType().Assembly.GetName().Version;
