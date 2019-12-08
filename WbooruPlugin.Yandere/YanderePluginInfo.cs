@@ -21,9 +21,11 @@ namespace WbooruPlugin.Yandere
 
         public override string PluginDescription => "The plugin could provide image and related functions.";
 
+        public override string PluginProjectWebsite => @"https://github.com/MikiraSora/WbooruPlugin.Yandere";
+
         public IEnumerable<ReleaseInfo> GetReleaseInfoList()
         {
-            return UpdaterHelper.GetGithubAllReleaseInfoList("");
+            return UpdaterHelper.GetGithubAllReleaseInfoList("https://api.github.com/repos/MikiraSora/WbooruPlugin.Yandere/releases");
         }
     }
 }
