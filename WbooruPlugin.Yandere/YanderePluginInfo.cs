@@ -25,7 +25,7 @@ namespace WbooruPlugin.Yandere
 
         public IEnumerable<ReleaseInfo> GetReleaseInfoList()
         {
-            return UpdaterHelper.GetGithubAllReleaseInfoList("https://api.github.com/repos/MikiraSora/WbooruPlugin.Yandere/releases");
+            return UpdaterHelper.GetGithubAllReleaseInfoList("MikiraSora","WbooruPlugin.Yandere");
         }
     }
 }
