@@ -96,7 +96,7 @@ namespace WbooruPlugin.Yandere
                     ExceptionHelper.DebugThrow(e);
                 }
 
-                foreach (var item in json.AsParallel().Select(x => BuildItem(x)))
+                foreach (var item in json.Select(x => BuildItem(x)))
                 {
                     yield return item;
                 }
