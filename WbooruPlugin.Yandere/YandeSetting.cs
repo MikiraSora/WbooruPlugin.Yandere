@@ -18,6 +18,11 @@ namespace WbooruPlugin.Yandere
         [Range(0,100)]
         public int PicturesCountPerRequest { get; set; } = 20;
 
+        [NeedRestart]
+        [Group("View Options")]
+        [Description("钦定Questionable评价的图片也算是NSFW内容")]
+        public bool QuestionableIsNSFW { get; set; } = true;
+
         [Group("Vote Options")]
         [Description("投票默认值")]
         [Range(1, 3)]

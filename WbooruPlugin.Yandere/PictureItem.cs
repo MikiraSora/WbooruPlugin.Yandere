@@ -12,5 +12,7 @@ namespace WbooruPlugin.Yandere
     public class PictureItem : GalleryItem
     {
         public GalleryImageDetail GalleryDetail { get; set; }
+
+        public Rating Rating { get; set; }
     }
 }

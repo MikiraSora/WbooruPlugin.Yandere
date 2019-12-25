@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PictureItem.cs" />
+    <Compile Include="Rating.cs" />
     <Compile Include="YandeAccountInfo.cs" />
     <Compile Include="YandeGallery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

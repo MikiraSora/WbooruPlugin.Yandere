@@ -30,6 +30,7 @@ namespace WbooruPlugin.Yandere
         IGallerySearchImage ,
         IGalleryItemIteratorFastSkipable,
         IGalleryAccount,
+        IGalleryNSFWFilter,
         IGalleryVote
     {
         public override string GalleryName => "Yande";
@@ -98,6 +99,10 @@ namespace WbooruPlugin.Yandere
 
                 foreach (var item in json.Select(x => BuildItem(x)))
                 {
+                    //自我审查(
+                    if (!NSFWFilter(item))
+                        continue;
+
                     yield return item;
                 }
 
@@ -110,6 +115,14 @@ namespace WbooruPlugin.Yandere
         private GalleryItem BuildItem(JToken pic_info)
         {
             PictureItem item = new PictureItem();
+
+            item.Rating = pic_info["rating"].ToString() switch
+            {
+                "s" => Rating.Safe,
+                "q" => Rating.Questionable,
+                "e" => Rating.Explicit,
+                _ => Rating.Questionable
+            };
 
             item.GalleryItemID = pic_info["id"].ToString();
             item.PreviewImageDownloadLink = pic_info["preview_url"].ToString();
@@ -384,6 +397,37 @@ namespace WbooruPlugin.Yandere
             var score = SettingManager.LoadSetting<YandeSetting>().VoteValue;
 
             return GetImagesInternal(new[] { $"vote:{score}:mikirasora","order:vote" });
+        }
+
+        public IEnumerable<GalleryItem> NSFWFilter(IEnumerable<GalleryItem> items)
+        {
+            return items.OfType<PictureItem>();
+            //return items.Where(x => NSFWFilter(x)); //GetImagesInternal()已经自主判断NSFW过滤，没必要再过滤
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns><see langword="false"/> is nsfw content.</returns>
+        internal bool NSFWFilter(GalleryItem item)
+        {
+            if (!SettingManager.LoadSetting<GlobalSetting>().EnableNSFWFileterMode)
+                return true;
+
+            if (item is PictureItem pi)
+            {
+                if (pi.Rating == Rating.Safe)
+                    return true;
+
+                if (pi.Rating == Rating.Questionable && !SettingManager.LoadSetting<YandeSetting>().QuestionableIsNSFW)
+                    return true;
+
+                return false;
+            }
+
+            //unknown picture item , default filter them.
+            return false;
         }
     }
 }
