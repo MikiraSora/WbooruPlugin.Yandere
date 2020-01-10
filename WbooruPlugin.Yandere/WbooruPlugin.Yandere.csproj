@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\Wbooru\bin\Debug\Plugins\Yande.re\</OutputPath>
+    <OutputPath>..\..\..\Wbooru\bin\Debug\Plugins\WbooruPlugin.Yandere\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -34,7 +34,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'SQLITE_DEBUG|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\Wbooru\bin\SQLITE_DEBUG\Plugins\</OutputPath>
+    <OutputPath>..\..\..\Wbooru\bin\SQLITE_DEBUG\Plugins\WbooruPlugin.Yandere\</OutputPath>
     <DefineConstants>TRACE;DEBUG;SQLITE_DEBUG</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
