@@ -19,6 +19,7 @@ using Wbooru.Models.Gallery;
 using Wbooru.Network;
 using Wbooru.PluginExt;
 using Wbooru.Settings;
+using Wbooru.UI.Controls;
 using Wbooru.UI.Pages;
 using Wbooru.Utils;
 
@@ -66,19 +67,19 @@ namespace WbooruPlugin.Yandere
             return detail;
         }
 
-        public IEnumerable<GalleryItem> GetImagesInternal(IEnumerable<string> tags=null,int page = 1)
+        public IEnumerable<GalleryItem> GetImagesInternal(IEnumerable<string> tags = null, int page = 1)
         {
             var limit = yander_setting.PicturesCountPerRequest;
             limit = limit == 0 ? global_setting.GetPictureCountPerLoad : limit;
 
             var base_url = $"https://yande.re/post.json?limit={limit}&";
 
-            if (tags?.Any()??false)
-                base_url += $"tags={string.Join("+",tags)}&";
+            if (tags?.Any() ?? false)
+                base_url += $"tags={string.Join("+", tags)}&";
 
             while (true)
             {
-                JArray json=null;
+                JArray json;
 
                 try
                 {
@@ -91,24 +92,28 @@ namespace WbooruPlugin.Yandere
 
                     if (json.Count == 0)
                         break;
+
+                    page++;
                 }
                 catch (Exception e)
                 {
-                    ExceptionHelper.DebugThrow(e);
+                    Log.Error($"Get image failed: {e.Message} , It will continue to fetch..");
+                    json = null;
                 }
 
-                foreach (var item in json.Select(x => BuildItem(x)))
+                if (json != null)
                 {
-                    //自我审查(
-                    if (!NSFWFilter(item))
-                        continue;
+                    foreach (var item in json.Select(x => BuildItem(x)))
+                    {
+                        //自我审查(
+                        if (!NSFWFilter(item))
+                            continue;
 
-                    yield return item;
+                        yield return item;
+
+                    }
                 }
-
-                page++;
             }
-
             Log<YandeGallery>.Info("there is no pic that gallery could provide.");
         }
 
